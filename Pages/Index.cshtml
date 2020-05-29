@@ -1,0 +1,44 @@
+﻿
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<html>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">DEADTweetcool</h1>
+        <p><center><img src="https://themake.files.wordpress.com/2012/07/twitter-bird-stabbed-thumb-500x271.jpg?w=584" width="125" height="101" alt="HTML Dog"></center></p>
+    </div>
+    <div class="text-left">
+        <h2>Nobody cares fam</h2>
+        <br />
+        <form method="post">
+            <label for="Your irrelevant name">
+                Your irrelevant name:
+                <input type="text" id="name" name="username" required>
+            </label>
+            <br>
+            <label for="Your irrelevant opinion">
+                Your irrelevant opinion:
+                <input id="textbox" type="text" name="message" required><br>
+            </label>
+            <button id="gomb">DON'T POST IT</button>
+        </form>
+    </div>
+    <div>
+        <br />
+        <h3>Tweets:</h3>
+        <br />
+        @foreach (var username in AllTweetsModel.TweetDictionary.Keys)
+        {
+            <div>
+                @foreach (Tweet tweet in AllTweetsModel.TweetDictionary[username])
+                {
+                    <p id="tweet"><img src="https://themake.files.wordpress.com/2012/07/twitter-bird-stabbed-thumb-500x271.jpg?w=584" width="62" height="50" alt="HTML Dog"><b>@username</b> : @tweet.Comment (@tweet.TweetingTime)</p>
+                }
+            </div>
+        }
+    </div>
+</body>
+</html>
